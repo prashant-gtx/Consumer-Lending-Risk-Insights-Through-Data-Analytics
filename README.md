@@ -1,21 +1,50 @@
-# Consumer Lending Risk Insights Through Data Analytics
+# Consumer Lending Risk Insights Through Data-Driven Analytics
 
 ## Project Overview
-This project focuses on analyzing consumer lending data to derive actionable risk insights. By leveraging data analytics techniques, the goal is to understand patterns in lending, identify potential risks, and support data-driven decision-making in the consumer lending domain.
+This project provides a comprehensive analysis of consumer lending risk. By leveraging data analytics techniques, it aims to derive actionable insights into applicant behavior, loan characteristics, and potential default risks. The analysis is documented in `Case_Study_Prashant.ipynb` and covers data cleaning, exploratory data analysis (EDA), and statistical modeling.
 
-## Project Structure
-The repository contains the following key files:
+## Data Sources
+The analysis utilizes two primary datasets:
+1.  **`credit_risk_applicants.csv`**: Contains detailed information about current loan applicants, including demographics, income, credit amount, and employment history.
+2.  **`credit_risk_previous_loans.csv`**: Provides historical data on previous loan applications and their outcomes.
 
-- **`Case_Study_Prashant.ipynb`**: A Jupyter Notebook containing the complete data analysis pipeline. This includes data cleaning, exploratory data analysis (EDA), visualization, and any predictive modeling or statistical analysis performed.
-- **`Report_Case Study.docx`**: A comprehensive report documenting the objectives, methodology, key findings, and recommendations derived from the analysis.
+## Methodology
+
+### 1. Data Loading and Cleaning
+-   Datasets are loaded using `pandas`.
+-   **Missing Value Analysis**: Extensive checks for null values across columns.
+-   **Feature Engineering**:
+    -   Conversion of `DAYS_EMPLOYED` to `EMPLOYED_YEARS` for better interpretability.
+    -   Handling anomalous values (e.g., replacing 365243 in `DAYS_EMPLOYED` with NaN).
+
+### 2. Exploratory Data Analysis (EDA)
+-   **Univariate Analysis**: Analyzing distributions of key variables such as:
+    -   Income Total
+    -   Credit Amount
+    -   Annuity Amount
+    -   Age (`DAYS_BIRTH` converted to years)
+    -   Employment Duration
+-   Visualizations using `matplotlib` and `seaborn` (Histograms, Distribution Plots) to identify patterns and outliers.
+
+### 3. Statistical Analysis & Modeling
+The project employs various statistical and machine learning libraries to understand risk factors:
+-   **Statistical Tests**: `scipy.stats` (T-tests, Chi-square, etc.) and `statsmodels` for hypothesis testing.
+-   **Predictive Modeling**: `sklearn` is used for data preprocessing (StandardScaler, LabelEncoder) and model selection (train_test_split), laying the groundwork for risk prediction models.
 
 ## Requirements
-To run the analysis notebook, you will need:
-- Python 3.x
-- Jupyter Notebook or JupyterLab
-- Common data science libraries (e.g., pandas, numpy, matplotlib, seaborn)
+To run the analysis locally, ensure you have the following Python libraries installed:
+
+```bash
+pip install numpy pandas scipy statsmodels matplotlib seaborn scikit-learn
+```
+
+## Structure
+-   **`Case_Study_Prashant.ipynb`**: The main notebook containing code, analysis, and visualizations.
+-   **`Report_Case Study.docx`**: A summary report of findings and recommendations.
+-   **`README.md`**: Project documentation.
 
 ## Usage
-1. Clone the repository.
-2. Open `Case_Study_Prashant.ipynb` in a Jupyter environment.
-3. Run the cells to reproduce the analysis.
+1.  Clone the repository.
+2.  Install the required dependencies.
+3.  Launch Jupyter Notebook: `jupyter notebook Case_Study_Prashant.ipynb`
+4.  Execute the cells sequentially to reproduce the analysis.
